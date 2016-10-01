@@ -1,6 +1,5 @@
 package hu.tokin.game1;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
@@ -47,6 +46,7 @@ public class TokinGame extends Game {
 	
 	@Override
 	public void dispose () {
+
 		batch.dispose();
 	}
 }
