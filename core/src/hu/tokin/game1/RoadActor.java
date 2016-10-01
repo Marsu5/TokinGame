@@ -5,7 +5,9 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 /**
  * Created by -Dinamo- on 2016.10.01..
@@ -17,21 +19,38 @@ public class RoadActor extends Actor{
     Sprite road2;
     Texture img;
 
+    float delta;
+
     float x1=0;
     float x2=TokinGame.wigth;
 
-    float roadSpeed=TokinGame.wigth/2;
+    static float roadSpeed=300;
 
     public RoadActor(){
         debug();
         img=new Texture("road.png");
         road1=new Sprite(img);
         road2=new Sprite(img);
+        addListener(new ClickListener() {
+                        @Override
+                        public void clicked(InputEvent event, float x, float y) {
+                            CarActor.carThereX=Gdx.input.getX()-(int)CarActor.carWidth;
+                            CarActor.carThereY=Gdx.input.getY();
+                            float m=Gdx.input.getY()/TokinGame.height;
+                            float b=1-m;
+                            CarActor.carThereY=TokinGame.height*b-10;
+                            CarActor.goX=true;
+                            CarActor.goY=true;
+                            CarActor.GO=false;
+                        }
+                    }
+        );
     }
 
     @Override
     public void act(float delta) {
         super.act(delta);
+        delta=Gdx.graphics.getDeltaTime();
         road1.setSize(TokinGame.wigth,TokinGame.height);
         road2.setSize(TokinGame.wigth,TokinGame.height);
         super.setSize(TokinGame.wigth,TokinGame.height);

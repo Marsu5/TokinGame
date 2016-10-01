@@ -16,6 +16,7 @@ public class TokinGame extends Game {
 	Stage stage;
 	Viewport viewport;
 	RoadActor road;
+	CarActor car;
 
 	static float wigth;
 	static float height;
@@ -30,16 +31,19 @@ public class TokinGame extends Game {
 		Gdx.input.setInputProcessor(stage);
 
 		road=new RoadActor();
+		car=new CarActor();
 		stage.addActor(road);
+		stage.addActor(car);
 	}
 
 	@Override
 	public void render () {
-		Gdx.gl.glClearColor(1, 0, 0, 1);
+		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		stage.act(Gdx.graphics.getDeltaTime());
 		stage.draw();
 	}
+
 	
 	@Override
 	public void dispose () {
