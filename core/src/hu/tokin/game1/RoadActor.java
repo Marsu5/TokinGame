@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 /**
@@ -38,6 +37,7 @@ public class RoadActor extends Actor{
                             CarActor.carThereY=Gdx.input.getY();
                             float m=Gdx.input.getY()/TokinGame.height;
                             float b=1-m;
+
                             CarActor.carThereY=TokinGame.height*b-10;
                             CarActor.goX=true;
                             CarActor.goY=true;
