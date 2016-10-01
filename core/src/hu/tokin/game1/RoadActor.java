@@ -37,7 +37,6 @@ public class RoadActor extends Actor{
                             CarActor.carThereY=Gdx.input.getY();
                             float m=Gdx.input.getY()/TokinGame.height;
                             float b=1-m;
-
                             CarActor.carThereY=TokinGame.height*b-10;
                             CarActor.goX=true;
                             CarActor.goY=true;
